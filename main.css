@@ -1,0 +1,282 @@
+@font-face {
+  font-family: "PokemonHollow2";
+  src: url("/fonts/PokemonHollow2.woff2") format("woff2"), url("/fonts/PokemonHollow.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "RetroGaming";
+  src: url("/fonts/RetroGaming.woff2") format("woff2"), url("/fonts/PokemonHollow.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  background-image: url(/images/background.jpg);
+  background-position: center;
+  background-repeat: repeat;
+}
+
+#container {
+  width: 1440px;
+  height: 100%;
+  position: relative;
+  background-color: rgba(66, 179, 255, 0.459);
+  margin: auto;
+}
+
+/* ################################### HEADER ###################################*/
+
+#header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.headerTittle {
+  text-align: center;
+  font-family: "PokemonHollow2";
+  font-size: 124px;
+  color: #ffcb05;
+  user-select: none;
+}
+
+.inputContainer {
+  display: flex;
+  margin: 20px 0;
+  margin-top: -40px;
+  margin-bottom: 50px;
+}
+
+.inputSearch {
+  width: 400px;
+  height: 40px;
+  border-radius: 20px 0 0 20px;
+  padding: 6px 14px;
+  background-color: rgba(54, 54, 54, 0.247);
+  font-size: 18px;
+  color: white;
+  border: 2px solid #ffcb05;
+  outline: transparent;
+}
+
+#inputSearch::placeholder {
+  color: #d6d6d6;
+}
+
+#inputSearch:hover,
+#inputSearch:focus {
+  background-color: rgba(87, 87, 87, 0.247);
+  outline: transparent;
+}
+
+#pokeBtn {
+  width: 60px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 20px 20px 0;
+  color: #2a75bb;
+  background-color: #ffcb05;
+  border: none;
+  outline: none;
+}
+
+#pokeBtn:hover {
+  cursor: pointer;
+}
+
+.gg-search {
+  border: 3px solid;
+}
+
+/* ################################### DATA ###################################*/
+
+.dataContainer {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+.UIcontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.pokeImages img {
+  width: 300px;
+  height: auto;
+  -webkit-filter: drop-shadow(5px 5px 5px #222);
+  filter: drop-shadow(5px 5px 5px #222);
+}
+
+.pokePlatform img {
+  width: 400px;
+  margin-top: -140px;
+}
+
+#infoDisplay {
+  display: none;
+}
+
+.pokeInfo {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  color: rgb(233, 233, 233);
+  padding: 26px 24px;
+  font-family: "RetroGaming";
+  font-size: 21px;
+  background-image: url(/images/dialog_bar.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.pokeData {
+  text-align: center;
+  color: #fff;
+  margin: 10px;
+  font: bold 32px Arial, Helvetica, sans-serif;
+}
+
+.pokeGraphic {
+  width: 420px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.301);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  border: 6px solid;
+  border-image: linear-gradient(45deg, turquoise, #ffcb05) 1;
+}
+.pokeGraphic canvas {
+  padding: 10px;
+}
+
+#pokeGraphicDisplay {
+  display: none;
+}
+
+.nameColor {
+  color: #ffcb05;
+}
+
+.pokeName {
+  padding-right: 10px;
+}
+
+.weightColor {
+  color: #ffcb05;
+}
+
+.unknown {
+  width: 32px;
+  height: auto;
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  cursor: help;
+}
+
+/* ################################### POKE TYPES ###################################*/
+
+.normal,
+.fire,
+.water,
+.grass,
+.electric,
+.ice,
+.fighting,
+.poison,
+.ground,
+.flying,
+.psychic,
+.bug,
+.rock,
+.ghost,
+.dark,
+.dragon,
+.steel,
+.fairy {
+  height: auto;
+  padding: 5px 15px;
+  border-radius: 10px;
+  font-size: 24px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+.normal {
+  background-color: #a8a77a;
+}
+.fire {
+  background-color: #ee8130;
+}
+.water {
+  background-color: #6390f0;
+}
+.grass {
+  background-color: #7ac74c;
+}
+.electric {
+  background-color: #f7d02c;
+}
+.ice {
+  background-color: #96d9d6;
+}
+.fighting {
+  background-color: #c22e28;
+}
+.poison {
+  background-color: #a33ea1;
+}
+.ground {
+  background-color: #e2bf65;
+}
+.flying {
+  background-color: #a98ff3;
+}
+.psychic {
+  background-color: #f95587;
+}
+.bug {
+  background-color: #a6b91a;
+}
+.rock {
+  background-color: #b6a136;
+}
+.ghost {
+  background-color: #735797;
+}
+.dragon {
+  background-color: #6f35fc;
+}
+.dark {
+  background-color: #705746;
+}
+.steel {
+  background-color: #b7b7ce;
+}
+.fairy {
+  background-color: #d685ad;
+}

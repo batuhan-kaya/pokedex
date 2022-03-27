@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/images/pokeball.png" type="image/png" sizes="48x48" />
+    <title>Pokedex</title>
+    <link href="https://css.gg/search.css" rel="stylesheet" />
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div id="container">
+      <img src="/images/unknown.png" id="tippyJS" class="unknown" />
+      <div id="header">
+        <h1 class="headerTittle">Pokédex</h1>
+        <div class="inputContainer">
+          <input type="text" id="inputSearch" class="inputSearch" placeholder="Pokemon search" autocomplete="off" />
+          <button id="pokeBtn">
+            <i class="gg-search"></i>
+          </button>
+        </div>
+      </div>
+      <div class="dataContainer">
+        <div class="UIcontainer">
+          <div class="pokeImages"></div>
+          <div class="pokePlatform"></div>
+          <div id="infoDisplay" class="pokeInfo">
+            <span class="pokeName"></span><br />
+            <span class="pokeWeight"></span><br />
+          </div>
+          <div id="pokeData" class="pokeData">
+            <span id="pokeTypeOne"></span>
+            <span id="pokeTypeTwo"></span>
+          </div>
+        </div>
+        <div class="pokeGraphic" id="pokeGraphicDisplay">
+          <canvas id="myChart" width="200" height="200"></canvas>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
