@@ -4,7 +4,9 @@ It is an original project written for API exercise.
 [Live Demo](https://batuhan-pokedex.vercel.app/)
 
 **Screenshot**
-![Screenshot](/images/screenshot.png)
+![Screenshot](/images/screenshot_1.png)
+
+![Screenshot](/images/screenshot_search.png)
 
 **Languages used**
 
