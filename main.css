@@ -33,8 +33,10 @@ body {
 
 #container {
   width: 1440px;
-  height: 100%;
+  height: auto;
   position: relative;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
   background-color: rgba(66, 179, 255, 0.459);
   margin: auto;
 }
@@ -159,7 +161,7 @@ body {
 .pokeData {
   text-align: center;
   color: #fff;
-  margin: 10px;
+  margin-bottom: 30px;
   font: bold 32px Arial, Helvetica, sans-serif;
 }
 
@@ -167,7 +169,7 @@ body {
   width: 420px;
   height: 100%;
   background-color: rgba(255, 255, 255, 0.301);
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
   border: 6px solid;
   border-image: linear-gradient(45deg, turquoise, #ffcb05) 1;
 }
@@ -279,4 +281,58 @@ body {
 }
 .fairy {
   background-color: #d685ad;
+}
+
+/* ################################### RESPONSİVE ###################################*/
+
+@media screen and (max-width: 1440px) {
+  #container {
+    width: 80%;
+    height: auto;
+  }
+
+  .headerTittle {
+    font-size: 96px;
+  }
+  .inputSearch {
+    width: 360px;
+    height: 36px;
+  }
+  #pokeBtn {
+    width: 56px;
+    height: 36px;
+  }
+  .pokeImages img {
+    width: 240px;
+    height: auto;
+  }
+  .pokePlatform img {
+    width: 340px;
+  }
+  .pokeGraphic {
+    width: 360px;
+  }
+}
+
+@media screen and (max-width: 1040px) {
+  .dataContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .pokeGraphic {
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .inputSearch {
+    width: 300px;
+  }
+  .pokeInfo {
+    font-size: 16px;
+    padding: 32px 18px;
+  }
 }
