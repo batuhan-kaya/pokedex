@@ -329,10 +329,90 @@ body {
 
 @media screen and (max-width: 600px) {
   .inputSearch {
-    width: 300px;
+    width: 240px;
   }
   .pokeInfo {
     font-size: 16px;
-    padding: 32px 18px;
+    padding: 32px 14px;
+  }
+  .headerTittle {
+    font-size: 64px;
+    margin-bottom: 24px;
+  }
+  .pokeGraphic {
+    width: 280px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .inputSearch {
+    width: 200px;
+  }
+  .pokeInfo {
+    background-size: 300px;
+  }
+  .headerTittle {
+    font-size: 48px;
+    margin-bottom: 24px;
+  }
+  .pokeGraphic {
+    width: 220px;
+  }
+  .pokeImages img {
+    width: 200px;
+    height: auto;
+  }
+
+  .pokePlatform img {
+    width: 300px;
+  }
+  .unknown {
+    width: 18px;
+    height: auto;
+    top: 10px;
+    right: 10px;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .dataContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .inputSearch {
+    width: 140px;
+    height: 30px;
+  }
+  #pokeBtn {
+    width: 40px;
+    height: 30px;
+  }
+  .gg-search {
+    border: 2px solid;
+  }
+
+  .pokeInfo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 10px;
+    background-size: 200px;
+  }
+  .headerTittle {
+    font-size: 48px;
+    margin-bottom: 24px;
+  }
+  .pokeGraphic {
+    width: 220px;
+  }
+  .pokeImages img {
+    width: 200px;
+    height: auto;
+  }
+
+  .pokePlatform img {
+    width: 200px;
   }
 }
