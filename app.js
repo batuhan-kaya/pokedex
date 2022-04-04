@@ -21,7 +21,18 @@ function enterValue() {
   let pokeSearch = document.getElementById("inputSearch").value.trim().toLowerCase();
   let pokeSearchReady = pokeSearch.replaceAll(" ", "-");
   if (pokeSearch === "") {
-    alert("bir pokemon adı giriniz...");
+    Swal.fire({
+      title: "Please enter a pokemon name...",
+      width: 600,
+      padding: "3em",
+      heightAuto: false,
+      color: "#fff",
+      background: "#fff url(./images/alertBackground.png)",
+      backdrop: `rgba(0,0,123,0.4)
+                url("./images/pikachugif.gif")
+                left bottom
+                no-repeat`,
+    });
     return;
   } else {
     pokedex();
@@ -37,13 +48,6 @@ function enterValue() {
   pokedex()
     .then((allPokedex) => {
       getPokeImages(allPokedex);
-
-      if (allPokedex.id > 10000) {
-        pokemonNotFound();
-        myChart.config.data.datasets[0].data = [null, null, null, null, null, null];
-        myChart.update();
-        return;
-      }
 
       let pokeBaseStats = [];
       for (let pokeStatsData of allPokedex.stats) {
@@ -63,8 +67,8 @@ function enterValue() {
         var typesOne = pokeTypes[0];
         var typesTwo = pokeTypes[1];
 
-        pokeTypeOne.innerHTML = typesOne;
-        pokeTypeTwo.innerHTML = typesTwo;
+        pokeTypeOne.innerHTML = typesOne[0].toUpperCase() + typesOne.substring(1);
+        pokeTypeTwo.innerHTML = typesTwo[0].toUpperCase() + typesTwo.substring(1);
 
         pokeTypeOne.classList.add(typesOne);
         pokeTypeTwo.classList.add(typesTwo);
@@ -73,12 +77,22 @@ function enterValue() {
         pokeTypeTwo.removeAttribute("class");
         pokeTypeTwo.innerHTML = "";
         let typesOne = pokeTypes[0];
-        pokeTypeOne.innerHTML = typesOne;
+        pokeTypeOne.innerHTML = typesOne[0].toUpperCase() + typesOne.substring(1);
         pokeTypeOne.classList.add(typesOne);
       }
 
       // UI
-      pokeName.innerHTML = `<span class="nameColor">Name: </span>` + allPokedex.name[0].toUpperCase() + allPokedex.name.substring(1);
+      let getPokemonName = allPokedex.name;
+
+      let pokeNameSplit = getPokemonName.split("-");
+
+      for (let i = 0; i < pokeNameSplit.length; i++) {
+        pokeNameSplit[i] = pokeNameSplit[i][0].toUpperCase() + pokeNameSplit[i].substr(1);
+      }
+
+      let pokemonNameUpperCase = pokeNameSplit.join(" ");
+
+      pokeName.innerHTML = `<span class="weightColor">Name: </span>` + pokemonNameUpperCase;
       pokeWeight.innerHTML = `<span class="weightColor">Weight: </span>` + allPokedex.weight;
 
       // Chart.js Data update
@@ -95,22 +109,10 @@ function enterValue() {
 // #################### Poke images ####################
 
 function getPokeImages(allPokedex) {
-  var pokeNumber = allPokedex.id;
-
-  if (pokeNumber < 10) {
-    var pokeNumber = `00${pokeNumber}`;
-    pokeImages.innerHTML = `<img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokeNumber}.png">`;
-    pokePlatform.innerHTML = `<img src="/images/platform.png" />`;
-  }
-
-  if (pokeNumber < 100 && pokeNumber > 9) {
-    var pokeNumber = `0${pokeNumber}`;
-    pokeImages.innerHTML = `<img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokeNumber}.png">`;
-    pokePlatform.innerHTML = `<img src="/images/platform.png" />`;
-  }
-
-  pokeImages.innerHTML = `<img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/${pokeNumber}.png">`;
-  pokePlatform.innerHTML = `<img src="/images/platform.png" />`;
+  let pokeNumber = allPokedex.id;
+  console.log(pokeNumber);
+  pokeImages.innerHTML = `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeNumber}.png" />`;
+  pokePlatform.innerHTML = `<img src="./images/platform.png" />`;
 }
 
 function pokemonNotFound() {
@@ -118,8 +120,8 @@ function pokemonNotFound() {
   pokeTypeTwo.removeAttribute("class");
   pokeTypeOne.innerHTML = "";
   pokeTypeTwo.innerHTML = "";
-  pokeImages.innerHTML = '<img src="/images/questionmark.png" />';
-  pokePlatform.innerHTML = `<img src="/images/platform.png" />`;
+  pokeImages.innerHTML = '<img src="./images/questionmark.png" />';
+  pokePlatform.innerHTML = `<img src="./images/platform.png" />`;
   pokeName.innerHTML = "Name: ---";
   pokeWeight.innerHTML = "Weight: ---";
 }
@@ -132,17 +134,6 @@ function UIDisplay() {
   document.getElementById("pokeGraphicDisplay").style.display = "block";
   document.getElementById("infoDisplay").style.display = "flex";
 }
-
-// #################### Tippy.JS ####################
-
-tippy("#tippyJS", {
-  content: "Mega evolution and dynamax <br /> transformations are not available!",
-  arrow: true,
-  placement: "left",
-  animation: "fade",
-  allowHTML: true,
-  theme: "light",
-});
 
 // #################### Chart.JS ####################
 
@@ -199,4 +190,15 @@ const myChart = new Chart(ctx, {
       },
     },
   },
+});
+
+// #################### Tippy.JS ####################
+
+tippy("#tippyJS", {
+  content: 'When searching for a custom form, search for <br/> "name mega x/y" or "name gmax"!',
+  arrow: true,
+  placement: "left",
+  animation: "fade",
+  allowHTML: true,
+  theme: "light",
 });
